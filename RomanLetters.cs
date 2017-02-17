@@ -68,5 +68,149 @@ namespace RomanLetters
             Assert.AreEqual("ERROR!", convertNumber(101));
         }
 
+        public String convertTensToRoman(int tens)
+        {
+            String result = "";
+            if (tens < 100 && tens >= 90) 
+            {
+                result = "XC";
+            }else
+                if (tens < 90 && tens >= 80)
+                {
+                    result = "LXXX";
+                }else
+                    if (tens < 80 && tens >= 70)
+                    {
+                        result = "LXX";
+                    }else
+                        if (tens < 70 && tens >= 60)
+                        {
+                            result = "LX";
+                        }else
+                            if (tens < 60 && tens >= 50)
+                            {
+                                result = "L";
+                            }else
+                                if (tens < 50 && tens >= 40)
+                                {
+                                    result = "XL";
+                                }else
+                                    if (tens < 40 && tens >= 30)
+                                    {
+                                        result = "XXX";
+                                    }else
+                                        if (tens < 30 && tens >= 20)
+                                        {
+                                            result = "XX";
+                                        }else
+                                            if ((tens < 20) && (tens >= 10))
+                                            {
+                                              
+                                                result = "X";
+                                            }
+            return result;
+        
+        }
+
+        public String convertDigitsToRoman(int digit)
+        {
+            String result = "";
+            switch (digit) 
+            {
+                case 9: 
+                    {
+                        result = "IX"; break;
+                    }
+                case 8:
+                    {
+                        result = "VIII"; break;
+                    }
+                case 7:
+                    {
+                        result = "VII"; break;
+                    }
+                case 6:
+                    {
+                        result = "VI"; break;
+                    }
+                case 5:
+                    {
+                        result = "V"; break;
+                    }
+                case 4:
+                    {
+                        result = "IV"; break;
+                    }
+                case 3:
+                    {
+                        result = "III"; break;
+                    }
+                case 2:
+                    {
+                        result = "II"; break;
+                    }
+                case 1:
+                    {
+                        result = "I"; break;
+                    } 
+
+            }
+
+            return result;
+        }
+        
+        
+        public String convertNumber(int number)
+        {
+            String result = "";
+            if ((number < 1) || (number > 100)) 
+            {
+                result = "ERROR!";
+            } 
+            else if (number == 100)
+            {
+                result = "C";
+            }
+            else {
+                      //create an array of digits.
+                String numberAsString = Convert.ToString(number);
+
+                char[] charDigits = numberAsString.ToCharArray();
+
+                int[] digits = new int[numberAsString.Length];
+
+               //put digits in an array of digits
+                for (int i = 0; i < digits.Length; i++)
+                {
+                    digits[i] = (int)char.GetNumericValue(charDigits[i]);
+                    
+                }
+                         
+                //replace digits with digit*powerOf10
+                    for (int i = 0; i < digits.Length; i++)
+                    {
+                        digits[i] = digits[i] * (int)Math.Pow(10, (digits.Length-1 - i));
+                    }
+
+                   //add roman digits to result;
+                    for (int i = 0; i < digits.Length; i++)
+                    {
+                        if (digits[i] >= 10)
+                        {
+                            result = result + convertTensToRoman(digits[i]);
+
+                        }
+                        else
+                        {
+                            result = result + convertDigitsToRoman(digits[i]);
+
+                        }
+                    }
+
+                  }
+            return result;
+
+        }
+
     }
 }
