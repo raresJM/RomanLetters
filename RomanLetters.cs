@@ -145,7 +145,7 @@ namespace RomanLetters
                         digits[i] = digits[i] * (int)Math.Pow(10, (digits.Length-1 - i));
                     }
 
-                   //add roman digits to result;
+                   //add roman values to result;
                    for (int i = 0; i < digits.Length; i++)
                     {
                         if (digits[i] >= 10)
