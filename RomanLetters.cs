@@ -86,52 +86,6 @@ namespace RomanLetters
             Assert.AreEqual("X", returnRomanValue(10, romanTens, arabicTens));
         }
 
-
-
-        //public String convertTensToRoman(int tens)
-        //{
-        //    String result = "";
-        //    if (tens < 100 && tens >= 90) 
-        //    {
-        //        result = "XC";
-        //    }else
-        //        if (tens < 90 && tens >= 80)
-        //        {
-        //            result = "LXXX";
-        //        }else
-        //            if (tens < 80 && tens >= 70)
-        //            {
-        //                result = "LXX";
-        //            }else
-        //                if (tens < 70 && tens >= 60)
-        //                {
-        //                    result = "LX";
-        //                }else
-        //                    if (tens < 60 && tens >= 50)
-        //                    {
-        //                        result = "L";
-        //                    }else
-        //                        if (tens < 50 && tens >= 40)
-        //                        {
-        //                            result = "XL";
-        //                        }else
-        //                            if (tens < 40 && tens >= 30)
-        //                            {
-        //                                result = "XXX";
-        //                            }else
-        //                                if (tens < 30 && tens >= 20)
-        //                                {
-        //                                    result = "XX";
-        //                                }else
-        //                                    if ((tens < 20) && (tens >= 10))
-        //                                    {
-                                              
-        //                                        result = "X";
-        //                                    }
-        //    return result;
-        
-        //}
-
         //method to return a String value representing the Roman 
         //representation of the 
         //parameter digit
@@ -153,8 +107,6 @@ namespace RomanLetters
             return result;
         }
 
- 
-        
         public String convertNumber(int number)
         {
             String[] romanDigits = { "I", "IV", "V", "IX" };
