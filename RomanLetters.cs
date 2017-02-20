@@ -140,13 +140,13 @@ namespace RomanLetters
             String result = "";
             while (digit > 0)
             {
-                for (int i = arabic.Length - 1; i > 0; i--)
+
+                for (int i = arabic.Length - 1; i >= 0; i--)
                 {
                     if (digit >= arabic[i])
                     {
-                        result += roman[i];
-                        digit -= arabic[i];
-                        
+                        result = result + roman[i];
+                        digit = digit - arabic[i]; 
                     }   
                 }
             }
