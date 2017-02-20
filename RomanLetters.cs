@@ -67,6 +67,15 @@ namespace RomanLetters
         {
             Assert.AreEqual("ERROR!", convertNumber(101));
         }
+        [TestMethod]
+        public void TestReturnRomanValue()
+        {
+            String[] romanDigits = { "I", "IV", "V", "IX" };
+            String[] romanTens = { "X", "XL", "L", "XC" };
+            Assert.AreEqual("I", returnRomanValue(1,romanDigits,))
+        }
+
+
 
         public String convertTensToRoman(int tens)
         {
@@ -112,49 +121,34 @@ namespace RomanLetters
         
         }
 
+        //method to return a String value representing the Roman representation of the 
+        //parameter digit
+        public String returnRomanValue(int digit, String[] romanValues, int[] arabicValues)
+        {
+            String result = "";
+            while (digit > 0)
+            {
+                for (int i = arabicValues.Length - 1; i > 0; i--)
+                {
+                    if (digit == arabicValues[i])
+                    {
+                        digit -= arabicValues[i];
+                        result += romanValues[i];
+                    }   
+                }
+            }
+        }
+
+
+
+
         public String convertDigitsToRoman(int digit)
         {
             String result = "";
-            switch (digit) 
-            {
-                case 9: 
-                    {
-                        result = "IX"; break;
-                    }
-                case 8:
-                    {
-                        result = "VIII"; break;
-                    }
-                case 7:
-                    {
-                        result = "VII"; break;
-                    }
-                case 6:
-                    {
-                        result = "VI"; break;
-                    }
-                case 5:
-                    {
-                        result = "V"; break;
-                    }
-                case 4:
-                    {
-                        result = "IV"; break;
-                    }
-                case 3:
-                    {
-                        result = "III"; break;
-                    }
-                case 2:
-                    {
-                        result = "II"; break;
-                    }
-                case 1:
-                    {
-                        result = "I"; break;
-                    } 
-
-            }
+            String [] romanDigits = {"I", "IV", "V", "IX"};
+            String[] romanTens = { "X", "XL", "L", "XC" };
+            int[] arabicDigits = { 1, 4, 5, 9 };
+            int[] arabicTens = {10,40,50,90};
 
             return result;
         }
