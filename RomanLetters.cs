@@ -142,34 +142,28 @@ namespace RomanLetters
             {
                 for (int i = arabic.Length - 1; i > 0; i--)
                 {
-                    if (digit == arabic[i])
+                    if (digit >= arabic[i])
                     {
-                        digit -= arabic[i];
                         result += roman[i];
+                        digit -= arabic[i];
+                        
                     }   
                 }
             }
             return result;
         }
 
-
-
-
-        public String convertDigitsToRoman(int digit)
-        {
-            String result = "";
-            String [] romanDigits = {"I", "IV", "V", "IX"};
-            String[] romanTens = { "X", "XL", "L", "XC" };
-            int[] arabicDigits = {1, 4, 5, 9};
-            int[] arabicTens = {10,40,50,90};
-
-            return result;
-        }
-        
+ 
         
         public String convertNumber(int number)
         {
+            String[] romanDigits = { "I", "IV", "V", "IX" };
+            String[] romanTens = { "X", "XL", "L", "XC" };
+            int[] arabicDigits = { 1, 4, 5, 9 };
+            int[] arabicTens = { 10, 40, 50, 90 };
+
             String result = "";
+
             if ((number < 1) || (number > 100)) 
             {
                 result = "ERROR!";
@@ -200,17 +194,16 @@ namespace RomanLetters
                     }
 
                    //add roman digits to result;
-                    for (int i = 0; i < digits.Length; i++)
+                   for (int i = 0; i < digits.Length; i++)
                     {
                         if (digits[i] >= 10)
                         {
-                            result = result + convertTensToRoman(digits[i]);
+                            result = result + returnRomanValue(digits[i],romanTens,arabicTens);
 
                         }
                         else
                         {
-                            result = result + convertDigitsToRoman(digits[i]);
-
+                        result = result + returnRomanValue(digits[i],romanDigits,arabicDigits);
                         }
                     }
 
